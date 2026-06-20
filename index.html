@@ -3,142 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>logain🥰❤️</title>
+
+<title>Love Site ❤️</title>
 
 <style>
 body{
-margin:0;
-background:#111;
-color:white;
-font-family:Arial,sans-serif;
-text-align:center;
-overflow-x:hidden;
+    margin:0;
+    padding:0;
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
 }
 
-h1{
-color:#ff4d88;
-margin:20px 0;
+.login{
+    margin-top:150px;
 }
 
-img{
-width:90%;
-max-width:400px;
-height:500px;
-object-fit:cover;
-border-radius:20px;
-box-shadow:0 0 15px rgba(255,255,255,.3);
+input{
+    padding:12px;
+    width:250px;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
 }
 
 button{
-padding:12px 20px;
-margin:15px 5px;
-border:none;
-border-radius:10px;
-background:#ff4d88;
-color:white;
-font-size:18px;
-cursor:pointer;
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:#ff4d88;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:10px;
 }
 
-p{
-font-size:20px;
-padding:10px;
+#content{
+    display:none;
 }
 
-.heart{
-position:fixed;
-top:-20px;
-font-size:25px;
-animation:fall 6s linear infinite;
+img{
+    width:300px;
+    max-width:90%;
+    border-radius:20px;
+    margin:10px;
 }
 
-@keyframes fall{
-from{transform:translateY(-20px);}
-to{transform:translateY(100vh);}
+h1{
+    color:#ff4d88;
 }
 </style>
 </head>
 
 <body>
 
-<h1>logain🥰❤️</h1>
+<div class="login" id="login">
+    <h1>❤️ Welcome ❤️</h1>
+    <input type="password" id="pass" placeholder="Enter Password">
+    <br>
+    <button onclick="checkPassword()">Login</button>
+</div>
+
+<div id="content">
+
+<h1>❤️ My Love ❤️</h1>
+
+<img src="IMG-20260620-WA0300.jpg">
+<img src="IMG-20260620-WA0301.jpg">
+<img src="IMG-20260620-WA0302.jpg">
+<img src="IMG-20260620-WA0303.jpg">
+<img src="IMG-20260620-WA0304.jpg">
+<img src="IMG-20260620-WA0305.jpg">
+<img src="IMG-20260620-WA0306.jpg">
+<img src="IMG-20260620-WA0307.jpg">
+<img src="IMG-20260620-WA0308.jpg">
+<img src="IMG-20260620-WA0309.jpg">
+
+<h2>
+❤️ بحبك ❤️ <br>
+أجمل شخص في حياتي 💕
+</h2>
 
 <audio controls autoplay loop>
-<source src="باين حبيتك.mp3" type="audio/mpeg">
+    <source src="بان حببتك.mp3" type="audio/mpeg">
 </audio>
 
-<br><br>
-
-<img id="photo" src="IMG-20260620-WA0300.jpg">
-
-<p id="text">أجمل صورة وأجمل ذكرى ❤️</p>
-
-<button onclick="prev()">السابق</button>
-<button onclick="next()">التالي</button>
+</div>
 
 <script>
 
-const images = [
-"IMG-20260620-WA0300.jpg",
-"IMG-20260620-WA0301.jpg",
-"IMG-20260620-WA0302.jpg",
-"IMG-20260620-WA0303.jpg",
-"IMG-20260620-WA0304.jpg",
-"IMG-20260620-WA0305.jpg",
-"IMG-20260620-WA0306.jpg",
-"IMG-20260620-WA0307.jpg",
-"IMG-20260620-WA0308.jpg",
-"IMG-20260620-WA0309.jpg"
-];
+const password = "love";
 
-const texts = [
-"أجمل صورة وأجمل ذكرى ❤️",
-"كل يوم معاكي أحلى من اللي قبله 🥰",
-"ضحكتك أحلى حاجة في الدنيا 🌹",
-"وجودك جنبي نعمة كبيرة ❤️",
-"بحب كل تفصيلة فيكي 💖",
-"أجمل أيام حياتي معاكي ✨",
-"قلبي اختارك ومش هيختار غيرك ❤️",
-"كل صورة ليها حكاية جميلة 🥰",
-"انتي السعادة كلها 🌹",
-"بحبك قد الدنيا وما فيها ❤️"
-];
+function checkPassword(){
 
-let current = 0;
+    let userPass =
+    document.getElementById("pass").value;
 
-function showImage(){
-document.getElementById("photo").src = images[current];
-document.getElementById("text").innerText = texts[current];
+    if(userPass === password){
+
+        document.getElementById("login").style.display="none";
+        document.getElementById("content").style.display="block";
+
+    }else{
+
+        alert("Wrong Password ❌");
+
+    }
+
 }
-
-function next(){
-current++;
-if(current >= images.length){
-current = 0;
-}
-showImage();
-}
-
-function prev(){
-current--;
-if(current < 0){
-current = images.length - 1;
-}
-showImage();
-}
-
-setInterval(()=>{
-const heart = document.createElement("div");
-heart.className = "heart";
-heart.innerHTML = "❤️";
-heart.style.left = Math.random()*100 + "vw";
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},6000);
-
-},500);
 
 </script>
 

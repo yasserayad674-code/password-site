@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>logain🥰♥️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>logain🥰❤️</title>
 
 <style>
 body{
+margin:0;
 background:#111;
 color:white;
-font-family:Arial;
+font-family:Arial,sans-serif;
 text-align:center;
-margin:0;
-overflow:hidden;
+overflow-x:hidden;
 }
 
 h1{
 color:#ff4d88;
-margin-top:20px;
+margin:20px 0;
 }
 
 img{
@@ -25,17 +26,18 @@ max-width:400px;
 height:500px;
 object-fit:cover;
 border-radius:20px;
-margin-top:10px;
+box-shadow:0 0 15px rgba(255,255,255,.3);
 }
 
 button{
-padding:10px 20px;
-font-size:18px;
-margin:10px;
+padding:12px 20px;
+margin:15px 5px;
 border:none;
 border-radius:10px;
 background:#ff4d88;
 color:white;
+font-size:18px;
+cursor:pointer;
 }
 
 p{
@@ -46,40 +48,37 @@ padding:10px;
 .heart{
 position:fixed;
 top:-20px;
-color:red;
+font-size:25px;
 animation:fall 6s linear infinite;
 }
 
 @keyframes fall{
-to{
-transform:translateY(100vh);
-}
+from{transform:translateY(-20px);}
+to{transform:translateY(100vh);}
 }
 </style>
 </head>
 
 <body>
 
-<h1>logain🥰♥️</h1>
+<h1>logain🥰❤️</h1>
 
-<audio autoplay loop controls>
+<audio controls autoplay loop>
 <source src="باين حبيتك.mp3" type="audio/mpeg">
 </audio>
 
-<br>
+<br><br>
 
 <img id="photo" src="IMG-20260620-WA0300.jpg">
 
 <p id="text">أجمل صورة وأجمل ذكرى ❤️</p>
-
-<br>
 
 <button onclick="prev()">السابق</button>
 <button onclick="next()">التالي</button>
 
 <script>
 
-const images=[
+const images = [
 "IMG-20260620-WA0300.jpg",
 "IMG-20260620-WA0301.jpg",
 "IMG-20260620-WA0302.jpg",
@@ -92,7 +91,7 @@ const images=[
 "IMG-20260620-WA0309.jpg"
 ];
 
-const texts=[
+const texts = [
 "أجمل صورة وأجمل ذكرى ❤️",
 "كل يوم معاكي أحلى من اللي قبله 🥰",
 "ضحكتك أحلى حاجة في الدنيا 🌹",
@@ -105,35 +104,40 @@ const texts=[
 "بحبك قد الدنيا وما فيها ❤️"
 ];
 
-let i=0;
+let current = 0;
 
-function show(){
-document.getElementById("photo").src=images[i];
-document.getElementById("text").innerText=texts[i];
+function showImage(){
+document.getElementById("photo").src = images[current];
+document.getElementById("text").innerText = texts[current];
 }
 
 function next(){
-i++;
-if(i>=images.length)i=0;
-show();
+current++;
+if(current >= images.length){
+current = 0;
+}
+showImage();
 }
 
 function prev(){
-i--;
-if(i<0)i=images.length-1;
-show();
+current--;
+if(current < 0){
+current = images.length - 1;
+}
+showImage();
 }
 
 setInterval(()=>{
-let h=document.createElement("div");
-h.className="heart";
-h.innerHTML="❤️";
-h.style.left=Math.random()*100+"vw";
-document.body.appendChild(h);
+const heart = document.createElement("div");
+heart.className = "heart";
+heart.innerHTML = "❤️";
+heart.style.left = Math.random()*100 + "vw";
+document.body.appendChild(heart);
 
 setTimeout(()=>{
-h.remove();
+heart.remove();
 },6000);
+
 },500);
 
 </script>

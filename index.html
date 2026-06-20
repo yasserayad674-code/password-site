@@ -1,117 +1,336 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Love Site ❤️</title>
+<title>logain🥰❤️</title>
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-    margin:0;
-    padding:0;
-    background:#111;
-    color:white;
-    font-family:Arial,sans-serif;
-    text-align:center;
+background:linear-gradient(to bottom,#fdf2f8,#ffe4e6);
+text-align:center;
+overflow-x:hidden;
+min-height:100vh;
 }
 
 .login{
-    margin-top:150px;
+margin-top:150px;
 }
 
 input{
-    padding:12px;
-    width:250px;
-    border:none;
-    border-radius:10px;
-    font-size:18px;
+padding:12px;
+width:250px;
+border:none;
+border-radius:15px;
+font-size:18px;
 }
 
 button{
-    padding:12px 25px;
-    border:none;
-    border-radius:10px;
-    background:#ff4d88;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    margin-top:10px;
+padding:12px 25px;
+margin:10px;
+border:none;
+border-radius:15px;
+background:#ff4d88;
+color:white;
+font-size:18px;
+cursor:pointer;
 }
 
 #content{
-    display:none;
+display:none;
+padding:20px;
 }
 
-img{
-    width:300px;
-    max-width:90%;
-    border-radius:20px;
-    margin:10px;
+.card{
+background:white;
+padding:20px;
+border-radius:25px;
+max-width:700px;
+margin:auto;
+box-shadow:0 0 20px rgba(0,0,0,.1);
 }
 
 h1{
-    color:#ff4d88;
+color:#ff4d88;
+margin-bottom:15px;
 }
+
+.counter{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin:20px 0;
+}
+
+.box{
+background:#fff0f5;
+padding:15px;
+border-radius:15px;
+width:90px;
+}
+
+.box span{
+font-size:25px;
+font-weight:bold;
+color:#ff4d88;
+}
+
+.gallery{
+margin-top:30px;
+}
+
+.gallery img{
+width:100%;
+max-width:500px;
+border-radius:20px;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+.caption{
+font-size:22px;
+margin:15px;
+color:#444;
+font-weight:bold;
+}
+
+audio{
+width:100%;
+margin-top:20px;
+}
+
+.heart{
+position:fixed;
+color:pink;
+font-size:20px;
+animation:fall 6s linear infinite;
+top:-50px;
+z-index:999;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="login" id="login">
-    <h1>❤️ Welcome ❤️</h1>
-    <input type="password" id="pass" placeholder="Enter Password">
-    <br>
-    <button onclick="checkPassword()">Login</button>
+
+<h1>❤️ Welcome ❤️</h1>
+
+<input type="password" id="pass" placeholder="Enter Password">
+
+<br>
+
+<button onclick="checkPassword()">Login</button>
+
 </div>
 
 <div id="content">
 
-<h1>❤️ My Love ❤️</h1>
+<div class="card">
 
-<img src="IMG-20260620-WA0300.jpg">
-<img src="IMG-20260620-WA0301.jpg">
-<img src="IMG-20260620-WA0302.jpg">
-<img src="IMG-20260620-WA0303.jpg">
-<img src="IMG-20260620-WA0304.jpg">
-<img src="IMG-20260620-WA0305.jpg">
-<img src="IMG-20260620-WA0306.jpg">
-<img src="IMG-20260620-WA0307.jpg">
-<img src="IMG-20260620-WA0308.jpg">
-<img src="IMG-20260620-WA0309.jpg">
+<h1>💞 logain🥰❤️ 💞</h1>
 
-<h2>
-❤️ بحبك ❤️ <br>
-أجمل شخص في حياتي 💕
-</h2>
+<h3>منذ 30 / 06 / 2025 ❤️</h3>
 
-<audio controls autoplay loop>
-    <source src="بان حببتك.mp3" type="audio/mpeg">
+<div class="counter">
+
+<div class="box">
+<span id="days">0</span>
+<div>يوم</div>
+</div>
+
+<div class="box">
+<span id="hours">0</span>
+<div>ساعة</div>
+</div>
+
+<div class="box">
+<span id="minutes">0</span>
+<div>دقيقة</div>
+</div>
+
+<div class="box">
+<span id="seconds">0</span>
+<div>ثانية</div>
+</div>
+
+</div>
+
+<h3>كل ثانية بتعدي وإنتِ في قلبي ❤️</h3>
+
+</div>
+
+<div class="gallery">
+
+<img id="photo" src="IMG-20260620-WA0300.jpg">
+
+<div class="caption" id="caption">
+أول صورة جمعتنا وكانت البداية ❤️
+</div>
+
+<button onclick="prevPhoto()">⬅ السابق</button>
+<button onclick="nextPhoto()">التالي ➡</button>
+
+</div>
+
+<audio controls loop>
+<source src="باين حبيتك.mp3" type="audio/mpeg">
 </audio>
 
 </div>
 
 <script>
 
-const password = "love";
+const password="love";
 
 function checkPassword(){
 
-    let userPass =
-    document.getElementById("pass").value;
+let userPass=document.getElementById("pass").value;
 
-    if(userPass === password){
+if(userPass===password){
 
-        document.getElementById("login").style.display="none";
-        document.getElementById("content").style.display="block";
+document.getElementById("login").style.display="none";
+document.getElementById("content").style.display="block";
 
-    }else{
+}else{
 
-        alert("Wrong Password ❌");
-
-    }
+alert("Wrong Password ❌");
 
 }
+
+}
+
+const photos=[
+
+"IMG-20260620-WA0300.jpg",
+"IMG-20260620-WA0301.jpg",
+"IMG-20260620-WA0302.jpg",
+"IMG-20260620-WA0303.jpg",
+"IMG-20260620-WA0304.jpg",
+"IMG-20260620-WA0305.jpg",
+"IMG-20260620-WA0306.jpg",
+"IMG-20260620-WA0307.jpg",
+"IMG-20260620-WA0308.jpg",
+"IMG-20260620-WA0309.jpg"
+
+];
+
+const captions=[
+
+"أول صورة جمعتنا وكانت البداية ❤️",
+"ضحكتك أجمل حاجة شوفتها ❤️",
+"كل يوم معاكي أحلى من اللي قبله ❤️",
+"عيونك وطن بحبه ❤️",
+"وجودك في حياتي نعمة ❤️",
+"أنتِ أجمل صدفة حصلتلي ❤️",
+"كل لحظة معاكي ذكرى جميلة ❤️",
+"قلبي اختارك من بين الكل ❤️",
+"أنتِ راحتي وسعادتي ❤️",
+"وهفضل أحبك كل يوم أكتر ❤️"
+
+];
+
+let current=0;
+
+function showPhoto(){
+
+document.getElementById("photo").src=photos[current];
+document.getElementById("caption").innerText=captions[current];
+
+}
+
+function nextPhoto(){
+
+current++;
+
+if(current>=photos.length){
+current=0;
+}
+
+showPhoto();
+
+}
+
+function prevPhoto(){
+
+current--;
+
+if(current<0){
+current=photos.length-1;
+}
+
+showPhoto();
+
+}
+
+const startDate=new Date("2025-06-30T00:00:00");
+
+function updateCounter(){
+
+const now=new Date();
+
+const diff=now-startDate;
+
+const days=Math.floor(diff/(1000*60*60*24));
+
+const hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+
+const minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+
+const seconds=Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("days").innerText=days;
+document.getElementById("hours").innerText=hours;
+document.getElementById("minutes").innerText=minutes;
+document.getElementById("seconds").innerText=seconds;
+
+}
+
+setInterval(updateCounter,1000);
+updateCounter();
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*20)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(createHeart,500);
 
 </script>
 

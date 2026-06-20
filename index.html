@@ -1,18 +1,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Love Site</title>
+<meta charset="UTF-8">
+<title>logain🥰♥️</title>
+
+<style>
+body{
+background:#111;
+color:white;
+font-family:Arial;
+text-align:center;
+margin:0;
+overflow:hidden;
+}
+
+h1{
+color:#ff4d88;
+margin-top:20px;
+}
+
+img{
+width:90%;
+max-width:400px;
+height:500px;
+object-fit:cover;
+border-radius:20px;
+margin-top:10px;
+}
+
+button{
+padding:10px 20px;
+font-size:18px;
+margin:10px;
+border:none;
+border-radius:10px;
+background:#ff4d88;
+color:white;
+}
+
+p{
+font-size:20px;
+padding:10px;
+}
+
+.heart{
+position:fixed;
+top:-20px;
+color:red;
+animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(100vh);
+}
+}
+</style>
 </head>
+
 <body>
 
-<script>
-let password = prompt("Enter Password");
+<h1>logain🥰♥️</h1>
 
-if(password === "love"){
-document.write("<h1>Welcome ❤️</h1><p>You entered the correct password.</p>");
-}else{
-document.write("<h1>Wrong Password ❌</h1>");
+<audio autoplay loop controls>
+<source src="باين حبيتك.mp3" type="audio/mpeg">
+</audio>
+
+<br>
+
+<img id="photo" src="IMG-20260620-WA0300.jpg">
+
+<p id="text">أجمل صورة وأجمل ذكرى ❤️</p>
+
+<br>
+
+<button onclick="prev()">السابق</button>
+<button onclick="next()">التالي</button>
+
+<script>
+
+const images=[
+"IMG-20260620-WA0300.jpg",
+"IMG-20260620-WA0301.jpg",
+"IMG-20260620-WA0302.jpg",
+"IMG-20260620-WA0303.jpg",
+"IMG-20260620-WA0304.jpg",
+"IMG-20260620-WA0305.jpg",
+"IMG-20260620-WA0306.jpg",
+"IMG-20260620-WA0307.jpg",
+"IMG-20260620-WA0308.jpg",
+"IMG-20260620-WA0309.jpg"
+];
+
+const texts=[
+"أجمل صورة وأجمل ذكرى ❤️",
+"كل يوم معاكي أحلى من اللي قبله 🥰",
+"ضحكتك أحلى حاجة في الدنيا 🌹",
+"وجودك جنبي نعمة كبيرة ❤️",
+"بحب كل تفصيلة فيكي 💖",
+"أجمل أيام حياتي معاكي ✨",
+"قلبي اختارك ومش هيختار غيرك ❤️",
+"كل صورة ليها حكاية جميلة 🥰",
+"انتي السعادة كلها 🌹",
+"بحبك قد الدنيا وما فيها ❤️"
+];
+
+let i=0;
+
+function show(){
+document.getElementById("photo").src=images[i];
+document.getElementById("text").innerText=texts[i];
 }
+
+function next(){
+i++;
+if(i>=images.length)i=0;
+show();
+}
+
+function prev(){
+i--;
+if(i<0)i=images.length-1;
+show();
+}
+
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},6000);
+},500);
+
 </script>
 
 </body>
